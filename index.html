@@ -1,331 +1,291 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Store | Shop Online</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-}
+    <title>Domain Takeover - Proof of Concept</title>
 
-body{
-    background:#f5f5f5;
-    color:#333;
-}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background:
+                radial-gradient(circle at top, #0b1f1a 0%, #050807 45%, #020303 100%);
+            color: #d7ffe8;
+            font-family: "Courier New", monospace;
+            min-height: 100vh;
+        }
 
-/* Navigation */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 70px 20px;
+        }
 
-nav{
-    background:#111;
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 8%;
-}
+        .terminal {
+            background: rgba(3, 10, 8, 0.92);
+            border: 1px solid #1f7a55;
+            box-shadow:
+                0 0 25px rgba(0, 255, 153, 0.12),
+                inset 0 0 30px rgba(0, 255, 153, 0.03);
+            padding: 40px;
+            border-radius: 8px;
+        }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
+        .top-line {
+            color: #53ffb1;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
 
-nav ul{
-    display:flex;
-    list-style:none;
-}
+        h1 {
+            color: #00ff99;
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 12px rgba(0, 255, 153, 0.35);
+        }
 
-nav ul li{
-    margin-left:30px;
-}
+        h2 {
+            color: #7fffd4;
+            font-size: 21px;
+            font-weight: normal;
+            margin-bottom: 35px;
+        }
 
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
+        h3 {
+            color: #45d6ff;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
 
-nav ul li a:hover{
-    color:#00b894;
-}
+        p {
+            color: #b7cfc5;
+            line-height: 1.8;
+            font-size: 15px;
+        }
 
-/* Hero */
+        .researcher {
+            margin: 35px 0;
+            padding: 20px;
+            border-left: 3px solid #00ff99;
+            background: rgba(0, 255, 153, 0.04);
+        }
 
-.hero{
-    height:80vh;
-    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
-    url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
+        .researcher-name {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+        }
 
-.hero h1{
-    font-size:55px;
-}
+        .highlight {
+            color: #00ff99;
+        }
 
-.hero p{
-    margin:20px 0;
-    font-size:20px;
-}
+        .cyan {
+            color: #45d6ff;
+        }
 
-.btn{
-    display:inline-block;
-    background:#00b894;
-    color:white;
-    padding:15px 35px;
-    text-decoration:none;
-    border-radius:5px;
-}
+        .status {
+            color: #6cff9d;
+            font-weight: bold;
+        }
 
-.btn:hover{
-    background:#00916f;
-}
+        hr {
+            border: none;
+            border-top: 1px solid #15382b;
+            margin: 35px 0;
+        }
 
-/* Products */
+        .command {
+            color: #65ffaf;
+            margin-top: 25px;
+            font-size: 14px;
+        }
 
-.container{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-}
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: #00ff99;
+            vertical-align: middle;
+            animation: blink 1s infinite;
+        }
 
-.title{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:35px;
-}
+        footer {
+            margin-top: 40px;
+            color: #608276;
+            font-size: 13px;
+        }
 
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
 
-.card{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-    transition:.3s;
-}
+            51%, 100% {
+                opacity: 0;
+            }
+        }
 
-.card:hover{
-    transform:translateY(-8px);
-}
+        @media (max-width: 600px) {
+            .container {
+                width: 92%;
+                padding: 30px 10px;
+            }
 
-.card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
+            .terminal {
+                padding: 25px 18px;
+            }
 
-.card-content{
-    padding:20px;
-}
-
-.price{
-    color:#00b894;
-    font-size:22px;
-    margin:10px 0;
-}
-
-.buy{
-    background:#111;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-.buy:hover{
-    background:#00b894;
-}
-
-/* Categories */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.category{
-    background:#111;
-    color:white;
-    padding:50px;
-    text-align:center;
-    border-radius:10px;
-    font-size:24px;
-}
-
-/* About */
-
-.about{
-    background:white;
-    padding:70px;
-    text-align:center;
-}
-
-/* Footer */
-
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:30px;
-}
-
-@media(max-width:768px){
-
-nav{
-flex-direction:column;
-}
-
-nav ul{
-margin-top:15px;
-}
-
-.hero h1{
-font-size:40px;
-}
-
-}
-</style>
-
+            h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<nav>
+    <div class="container">
 
-<div class="logo">Elite Store</div>
+        <div class="terminal">
 
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">Shop</a></li>
-<li><a href="#">Categories</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+            <div class="top-line">
+                [ SECURITY RESEARCH / RESPONSIBLE DISCLOSURE ]
+            </div>
 
-</nav>
+            <h1>DOMAIN TAKEOVER</h1>
 
-<section class="hero">
+            <h2>
+                Proof of Concept Successfully Demonstrated
+            </h2>
 
-<div>
+            <p>
+                This page demonstrates that the affected domain or subdomain
+                can be controlled due to an insecure, dangling, or improperly
+                configured DNS and hosting reference.
+            </p>
 
-<h1>Discover Amazing Products</h1>
+            <div class="researcher">
 
-<p>Best Prices • Premium Quality • Fast Delivery</p>
+                <p>
+                    Proof of Concept demonstrated by:
+                </p>
 
-<a href="#" class="btn">Shop Now</a>
+                <div class="researcher-name">
+                    Karan Kedarnath Doiphode
+                </div>
 
-</div>
+                <p>
+                    Security Researcher
+                </p>
 
-</section>
+            </div>
 
-<section class="container">
+            <hr>
 
-<h2 class="title">Featured Products</h2>
+            <h3>Proof of Control</h3>
 
-<div class="products">
+            <p>
+                <span class="cyan">Researcher:</span>
+                Karan Kedarnath Doiphode
+            </p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80">
-<div class="card-content">
-<h3>Running Shoes</h3>
-<p class="price">$79</p>
-<button class="buy">Add to Cart</button>
-</div>
-</div>
+            <p>
+                <span class="cyan">Finding:</span>
+                Domain / Subdomain Takeover
+            </p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80">
-<div class="card-content">
-<h3>Premium T-Shirt</h3>
-<p class="price">$29</p>
-<button class="buy">Add to Cart</button>
-</div>
-</div>
+            <p>
+                <span class="cyan">Status:</span>
+                <span class="status">CONFIRMED</span>
+            </p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80">
-<div class="card-content">
-<h3>Smart Watch</h3>
-<p class="price">$199</p>
-<button class="buy">Add to Cart</button>
-</div>
-</div>
+            <p>
+                <span class="cyan">Purpose:</span>
+                Authorized Security Testing and Responsible Disclosure
+            </p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80">
-<div class="card-content">
-<h3>Smartphone</h3>
-<p class="price">$699</p>
-<button class="buy">Add to Cart</button>
-</div>
-</div>
+            <hr>
 
-</div>
+            <h3>Security Impact</h3>
 
-</section>
+            <p>
+                The affected hostname appears to reference an external resource
+                that is no longer properly controlled by the organization.
+            </p>
 
-<section class="container">
+            <p>
+                If left unresolved, an unauthorized party may potentially claim
+                the referenced resource and serve arbitrary content through a
+                trusted organizational hostname.
+            </p>
 
-<h2 class="title">Shop by Category</h2>
+            <hr>
 
-<div class="categories">
+            <h3>Responsible Disclosure Notice</h3>
 
-<div class="category">Electronics</div>
+            <p>
+                This page exists exclusively as a
+                <span class="highlight">Proof of Concept</span>
+                for security validation and responsible disclosure.
+            </p>
 
-<div class="category">Fashion</div>
+            <p>
+                No credentials, authentication tokens, personal information,
+                payment information, cookies, or other sensitive data are
+                collected or stored.
+            </p>
 
-<div class="category">Accessories</div>
+            <p>
+                No phishing forms, redirects, malware, tracking mechanisms,
+                or malicious scripts are deployed.
+            </p>
 
-<div class="category">Home & Living</div>
+            <hr>
 
-</div>
+            <h3>Recommended Remediation</h3>
 
-</section>
+            <p>
+                Review the affected DNS configuration and remove any obsolete,
+                dangling, or unclaimed records.
+            </p>
 
-<section class="about">
+            <p>
+                Any external hosting resource referenced by the DNS record
+                should remain under organizational control or the corresponding
+                DNS entry should be removed.
+            </p>
 
-<h2>Why Choose Elite Store?</h2>
+            <div class="command">
+                root@security-research:~$ takeover_status --verified
+                <span class="cursor"></span>
+            </div>
 
-<br>
+            <footer>
+                <p>
+                    Domain Takeover Proof of Concept
+                </p>
 
-<p>
-We provide high-quality products at affordable prices with secure payments,
-fast shipping, and dedicated customer support.
-</p>
+                <p>
+                    Demonstrated by Karan Kedarnath Doiphode
+                </p>
 
-</section>
+                <p>
+                    Security Researcher | Responsible Disclosure
+                </p>
+            </footer>
 
-<footer>
+        </div>
 
-<h3>Elite Store</h3>
-
-<br>
-
-<p>Email: support@elitestore.com</p>
-
-<p>Phone: +1 234 567 890</p>
-
-<br>
-
-<p>© 2026 Elite Store. All Rights Reserved.</p>
-
-</footer>
+    </div>
 
 </body>
+
 </html>
